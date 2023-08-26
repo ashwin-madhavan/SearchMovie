@@ -14,7 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.plcoding.stockmarketapp.presentation.MovieSearchViewModel
+import com.plcoding.stockmarketapp.presentation.MovieListingsViewModel
 import com.plcoding.stockmarketapp.ui.theme.StockMarketAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    val curViewModel: MovieSearchViewModel = viewModel()
+                    val curViewModel: MovieListingsViewModel = viewModel()
                     curViewModel.searchMovies("Barbie")
                     Text(
                         modifier = Modifier.padding(start = 3.dp, bottom = 2.dp),

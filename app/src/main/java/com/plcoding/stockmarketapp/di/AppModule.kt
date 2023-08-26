@@ -1,5 +1,8 @@
 package com.plcoding.stockmarketapp.di
 
+import android.app.Application
+import androidx.room.Room
+import com.plcoding.stockmarketapp.data.local.MovieDatabase
 import com.plcoding.stockmarketapp.data.remote.MovieApi
 import dagger.Module
 import dagger.Provides
@@ -48,5 +51,13 @@ object AppModule {
         return retrofit.create(MovieApi::class.java)
     }
 
-
+    @Provides
+    @Singleton
+    fun provideStockDatabase(app: Application): MovieDatabase {
+        return Room.databaseBuilder(
+            app,
+            MovieDatabase::class.java,
+            "moviedb.db"
+        ).build()
+    }
 }

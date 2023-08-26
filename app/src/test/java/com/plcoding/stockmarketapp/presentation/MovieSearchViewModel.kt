@@ -16,7 +16,7 @@ class MovieSearchViewModel @Inject constructor(
     fun searchMovies(query: String) {
         viewModelScope.launch {
             try {
-                val movieResponse = api.getMovies(query)
+                val movieResponse = api.getListings(query)
                 Log.d("TAG", movieResponse.toString())
             } catch (e: Exception) {
                 // Handle error cases here
