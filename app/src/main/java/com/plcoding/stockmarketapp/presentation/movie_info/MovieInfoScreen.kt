@@ -1,14 +1,15 @@
 package com.plcoding.stockmarketapp.presentation.company_info
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.Center
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -16,6 +17,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.plcoding.stockmarketapp.domain.model.MovieReview
 import com.plcoding.stockmarketapp.ui.theme.DarkBlue
 import com.ramcosta.composedestinations.annotation.Destination
 
@@ -26,7 +28,7 @@ fun MovieInfoScreen(
     viewModel: MovieInfoViewModel = hiltViewModel()
 ) {
     val state = viewModel.state
-    if(state.error == null) {
+    if (state.error == null) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -48,6 +50,17 @@ fun MovieInfoScreen(
                     fontSize = 14.sp,
                     modifier = Modifier.fillMaxWidth()
                 )
+            }
+            val movieReview = MovieReview(
+                2, "test", "test",
+                "test", "test", "test", 4
+            )
+            Button(onClick = { viewModel.addMovieReview(movieReview) }) {
+                Text(text = "Add Review")
+            }
+
+            Button(onClick = { viewModel.getAllMovieReviews() }) {
+                Text(text = "Get all Reviews")
             }
         }
     }

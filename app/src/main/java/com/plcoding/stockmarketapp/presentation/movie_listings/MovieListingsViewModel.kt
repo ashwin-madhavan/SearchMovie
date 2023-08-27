@@ -51,7 +51,6 @@ class MovieListingsViewModel @Inject constructor(
             repository
                 .getMovieListings(fetchFromRemote, query)
                 .collect { result ->
-                    Log.d("Tag - ViewModel", result.toString() )
                     when (result) {
                         is Resource.Success -> {
                             result.data?.let { listings ->
@@ -67,17 +66,4 @@ class MovieListingsViewModel @Inject constructor(
                 }
         }
     }
-
-    /**
-    fun searchMovies(query: String) {
-    viewModelScope.launch {
-    try {
-    val movieResponse = api.getListings(query)
-    Log.d("TAG", movieResponse.toString())
-    } catch (e: Exception) {
-    // Handle error cases here
-    }
-    }
-    }
-     **/
 }
