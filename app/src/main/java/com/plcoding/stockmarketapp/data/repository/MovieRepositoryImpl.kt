@@ -1,7 +1,6 @@
 package com.plcoding.stockmarketapp.data.repository
 
 import android.util.Log
-import com.plcoding.stockmarketapp.data.csv.CSVParser
 import com.plcoding.stockmarketapp.data.local.MovieDatabase
 import com.plcoding.stockmarketapp.data.mapper.toMovieListing
 import com.plcoding.stockmarketapp.data.mapper.toMovieListingEntity
@@ -20,7 +19,6 @@ import javax.inject.Singleton
 class MovieRepositoryImpl @Inject constructor(
     private val api: MovieApi,
     private val db: MovieDatabase,
-    private val movieListingsParser: CSVParser<MovieListing>,
 ) : MovieRepository {
 
     private val dao = db.dao

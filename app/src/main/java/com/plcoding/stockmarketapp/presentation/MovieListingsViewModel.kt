@@ -38,7 +38,7 @@ class MovieListingsViewModel @Inject constructor(
                 searchJob?.cancel() // cancel current running jbo
                 searchJob = viewModelScope.launch {
                     delay(500L) // allow buffer for inputs
-                    getMovieListings()
+                    getMovieListings(fetchFromRemote = true)
                 }
             }
         }
