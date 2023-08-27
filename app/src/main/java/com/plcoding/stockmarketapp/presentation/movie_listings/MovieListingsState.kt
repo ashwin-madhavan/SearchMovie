@@ -1,4 +1,4 @@
-package com.plcoding.stockmarketapp.presentation
+package com.plcoding.stockmarketapp.presentation.movie_listings
 
 import com.plcoding.stockmarketapp.domain.model.MovieListing
 

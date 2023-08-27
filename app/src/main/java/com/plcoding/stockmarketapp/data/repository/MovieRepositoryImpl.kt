@@ -2,9 +2,11 @@ package com.plcoding.stockmarketapp.data.repository
 
 import android.util.Log
 import com.plcoding.stockmarketapp.data.local.MovieDatabase
+import com.plcoding.stockmarketapp.data.mapper.toMovieInfo
 import com.plcoding.stockmarketapp.data.mapper.toMovieListing
 import com.plcoding.stockmarketapp.data.mapper.toMovieListingEntity
 import com.plcoding.stockmarketapp.data.remote.MovieApi
+import com.plcoding.stockmarketapp.domain.model.MovieInfo
 import com.plcoding.stockmarketapp.domain.model.MovieListing
 import com.plcoding.stockmarketapp.domain.repository.MovieRepository
 import com.plcoding.stockmarketapp.util.Resource
@@ -75,6 +77,23 @@ class MovieRepositoryImpl @Inject constructor(
                 emit(Resource.Loading(false))
             }
 
+        }
+    }
+
+    override suspend fun getMovieInfo(id: Long): Resource<MovieInfo> {
+        return try {
+            val result = api.getMovieInfo(id)
+            Resource.Success(result.toMovieInfo())
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Resource.Error(
+                message = "Couldn't load company info"
+            )
+        } catch (e: HttpException) {
+            e.printStackTrace()
+            Resource.Error(
+                message = "Couldn't load company info"
+            )
         }
     }
 

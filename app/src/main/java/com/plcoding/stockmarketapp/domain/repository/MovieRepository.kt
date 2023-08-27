@@ -10,4 +10,8 @@ interface MovieRepository {
         fetchFromRemote: Boolean,
         query: String
     ) : Flow<Resource<List<MovieListing>>>
+
+    suspend fun getMovieInfo(
+        id: Long
+    ): Resource<MovieInfo>
 }

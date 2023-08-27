@@ -1,4 +1,4 @@
-package com.plcoding.stockmarketapp.presentation.company_listings
+package com.plcoding.stockmarketapp.presentation.movie_listings
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.plcoding.stockmarketapp.presentation.MovieListingsViewModel
+import com.plcoding.stockmarketapp.presentation.destinations.MovieInfoScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -64,16 +64,18 @@ fun CompanyListingsScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-//                                navigator.navigate(
-//                                    MovieInfoScreenDestination(movie.title)
-//                                )
+                                navigator.navigate(
+                                    MovieInfoScreenDestination(movie.movie_id)
+                                )
                             }
                             .padding(16.dp)
                     )
-                    if(i < state.movies.size) {
-                        Divider(modifier = Modifier.padding(
-                            horizontal = 16.dp
-                        ))
+                    if (i < state.movies.size) {
+                        Divider(
+                            modifier = Modifier.padding(
+                                horizontal = 16.dp
+                            )
+                        )
                     }
                 }
             }

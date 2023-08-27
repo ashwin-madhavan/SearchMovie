@@ -1,4 +1,4 @@
-package com.plcoding.stockmarketapp.presentation.company_listings
+package com.plcoding.stockmarketapp.presentation.movie_listings
 
 sealed class MovieListingsEvent {
     object Refresh: MovieListingsEvent()

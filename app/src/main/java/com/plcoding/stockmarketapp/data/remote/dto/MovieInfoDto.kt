@@ -1,6 +1,6 @@
-package com.plcoding.stockmarketapp.domain.model
+package com.plcoding.stockmarketapp.data.remote.dto
 
-data class MovieInfo(
+data class MovieInfoDto(
     val id: Long,
     val overview: String,
     val release_date: String,

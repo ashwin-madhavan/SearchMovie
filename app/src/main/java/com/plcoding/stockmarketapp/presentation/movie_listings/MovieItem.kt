@@ -1,4 +1,4 @@
-package com.plcoding.stockmarketapp.presentation.company_listings
+package com.plcoding.stockmarketapp.presentation.movie_listings
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
