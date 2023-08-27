@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
+import com.plcoding.stockmarketapp.presentation.MainScreen
 import com.plcoding.stockmarketapp.presentation.NavGraphs
 import com.plcoding.stockmarketapp.ui.theme.StockMarketAppTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
@@ -23,6 +24,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     DestinationsNavHost(navGraph = NavGraphs.root)
+                    MainScreen()
                 }
             }
         }
