@@ -36,7 +36,7 @@ fun CompanyListingsScreen(
             value = state.searchQuery,
             onValueChange = {
                 viewModel.onEvent(
-                    CompanyListingsEvent.OnSearchQueryChange(it)
+                    MovieListingsEvent.OnSearchQueryChange(it)
                 )
             },
             modifier = Modifier
@@ -51,7 +51,7 @@ fun CompanyListingsScreen(
         SwipeRefresh(
             state = swipeRefreshState,
             onRefresh = {
-                viewModel.onEvent(CompanyListingsEvent.Refresh)
+                viewModel.onEvent(MovieListingsEvent.Refresh)
             }
         ) {
             LazyColumn(

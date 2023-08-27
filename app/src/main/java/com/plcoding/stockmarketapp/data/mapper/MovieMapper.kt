@@ -1,6 +1,8 @@
 package com.plcoding.stockmarketapp.data.mapper
 
+import com.example.searchmovietitle.model.Movie
 import com.plcoding.stockmarketapp.data.local.MovieListingEntity
+import com.plcoding.stockmarketapp.domain.model.MovieInfo
 import com.plcoding.stockmarketapp.domain.model.MovieListing
 
 fun MovieListingEntity.toMovieListing(): MovieListing {
@@ -12,9 +14,9 @@ fun MovieListingEntity.toMovieListing(): MovieListing {
     )
 }
 
-fun MovieListing.toMovieListingEntity(): MovieListingEntity {
+fun Movie.toMovieListingEntity(): MovieListingEntity {
     return MovieListingEntity(
-        movie_id = movie_id,
+        movie_id = id,
         overview = overview,
         release_date = release_date,
         title = title,

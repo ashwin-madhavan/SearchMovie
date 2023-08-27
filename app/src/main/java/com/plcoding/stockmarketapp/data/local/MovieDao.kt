@@ -8,12 +8,12 @@ import androidx.room.Query
 @Dao
 interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCompanyListings(
-        companyListingEntities: List<MovieListingEntity>
+    suspend fun insertMovieListings(
+        movieListingEntities: List<MovieListingEntity>
     )
 
     @Query("DELETE FROM movielistingentity")
-    suspend fun clearCompanyListings()
+    suspend fun clearMovieListings()
 
     @Query(
         """
@@ -22,5 +22,5 @@ interface MovieDao {
             WHERE LOWER(title) LIKE '%' || LOWER(:query) || '%';
         """
     )
-    suspend fun searchCompanyListing(query: String): List<MovieListingEntity>
+    suspend fun searchMovieListing(query: String): List<MovieListingEntity>
 }
