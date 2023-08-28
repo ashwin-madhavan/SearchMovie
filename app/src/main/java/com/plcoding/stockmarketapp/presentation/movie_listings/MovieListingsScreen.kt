@@ -20,7 +20,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
-@Destination(start = true)
+@Destination
 fun CompanyListingsScreen(
     navigator: DestinationsNavigator,
     viewModel: MovieListingsViewModel = hiltViewModel()
